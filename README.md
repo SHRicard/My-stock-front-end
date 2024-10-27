@@ -1,50 +1,51 @@
-# React + TypeScript + Vite
+# My-stock Front-end
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📋 Descripción
 
-Currently, two official plugins are available:
+**My-stock** es una aplicación de gestión de inventario desarrollada con **Vite**, **React**, y **TypeScript**, diseñada para ofrecer una interfaz rápida y fácil de usar para administrar productos y usuarios.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologías Utilizadas
 
-## Expanding the ESLint configuration
+- **Frontend**: Vite, React, TypeScript
+- **Backend**: LoopBack 4 (repositorio aparte)
+- **Base de Datos**: MongoDB
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🌟 Funcionalidades
 
-- Configure the top-level `parserOptions` property like this:
+- **Modos de visualización**: Dark Mode y Light Mode
+- **Gestión de productos**: 
+  - Búsqueda avanzada por nombre exacto
+  - Filtros por fecha de creación y usuario
+  - Creación, actualización, eliminación y control de stock
+- **Gestión de usuarios**: 
+  - Creación y eliminación de usuarios
+  - Control de horas trabajadas/conectadas
+  - Creación de notas diarias para cada usuario
+- **Autenticación y Sesiones**:
+  - Inicio de sesión seguro con autenticación
+  - Recordatorio de sesión con vencimiento automático cada hora
+- **Otras características**: Reportes de actividad, control de acceso, y filtrado avanzado.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🛠️ Instalación y Ejecución
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/SHRicard/My-stock-front-end.git
+## ⚙️ Configuración
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Crea un archivo `.env` en la raíz del proyecto con las variables necesarias, como la URL del backend.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## 📜 Scripts Disponibles
+
+- `npm run dev`: Inicia el entorno de desarrollo.
+- `npm run build`: Compila la app para producción.
+- `npm run lint`: Analiza el código en busca de errores.
+
+## 🤝 Contribución
+
+Las contribuciones son bienvenidas. Haz un fork y crea una rama para tus cambios.
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT.
+
