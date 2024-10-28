@@ -27,10 +27,11 @@ export const Login = () => {
   });
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    const { username, password, rememberMe } = data;
+    const { username, password, rememberMe = true } = data;
 
     try {
       const response = await loginUser({ username, password, rememberMe });
+      console.log({ response });
 
       if (!response.success) {
         if (response.message.includes("Usuario")) {
