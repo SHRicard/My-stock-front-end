@@ -8,9 +8,12 @@ interface LoginData {
 
 export const loginUser = async (loginData: LoginData) => {
   const URL_LOGIN = import.meta.env.VITE_LOGIN;
-  console.log({ URL_LOGIN, loginData });
   try {
-    const response = await axios.post(URL_LOGIN, loginData);
+    const response = await axios.post(URL_LOGIN, {
+      username: loginData.username,
+      password: loginData.password,
+      rememberMe: true,
+    });
 
     if (response.data.token) {
       sessionStorage.setItem("authToken", response.data.token);
