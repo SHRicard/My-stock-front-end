@@ -1,4 +1,3 @@
-import * as React from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -6,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useTheme } from "@mui/material";
 import { FormatDate } from "../../Utils";
+import { useState } from "react";
 
 export interface IGlobalLogs {
   id?: string;
@@ -22,12 +22,11 @@ export interface IGlobalLogs {
 }
 
 export const AccordionsGlobalLogs = ({ data }: { data: IGlobalLogs }) => {
-  const [expanded, setExpanded] = React.useState<string | false>(false);
+  const [expanded, setExpanded] = useState<string | false>(false);
   const theme = useTheme();
-  const handleChange =
-    (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-      setExpanded(isExpanded ? panel : false);
-    };
+  const handleChange = (panel: string) => (isExpanded: boolean) => {
+    setExpanded(isExpanded ? panel : false);
+  };
 
   return (
     <Accordion
@@ -44,7 +43,7 @@ export const AccordionsGlobalLogs = ({ data }: { data: IGlobalLogs }) => {
         },
       }}
       expanded={expanded === data.id}
-      onChange={handleChange(data.id || "")}
+      onChange={() => handleChange(data.id || "")}
     >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}

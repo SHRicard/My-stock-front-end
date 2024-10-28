@@ -2,8 +2,6 @@ import { Checkbox, FormControlLabel } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { UseFormRegisterReturn } from "react-hook-form";
 
-import React from "react";
-
 interface ICheckProps {
   label: string;
   register: UseFormRegisterReturn;

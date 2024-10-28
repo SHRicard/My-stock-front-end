@@ -1,4 +1,3 @@
-import React from "react";
 import { IconButton } from "@mui/material"; // Botón de MUI
 import { useNavigate } from "react-router-dom"; // Para la navegación
 import { FaArrowLeft } from "react-icons/fa"; // Ícono de back de react-icons

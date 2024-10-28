@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   AccordionsGlobalLogs,
   BtnSmall,
@@ -37,10 +36,7 @@ export const Record = () => {
     loading,
   } = UseGlobalLogs<IGlobalLogs>(itemsPerPage);
 
-  const handlePageChange = (
-    event: React.ChangeEvent<unknown>,
-    value: number
-  ) => {
+  const handlePageChange = (value: number) => {
     setPage(value);
   };
 
@@ -145,7 +141,7 @@ export const Record = () => {
         <Paginations
           currentPage={page}
           totalPages={totalPages}
-          onPageChange={handlePageChange}
+          onPageChange={() => handlePageChange}
         />
       </CCol>
     </CContainer>

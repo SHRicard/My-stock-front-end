@@ -51,6 +51,12 @@ interface TablesProps {
   data: IWorkRecord[] | IPersonalData[];
   reset: () => void;
 }
+interface ErrorWithResponse {
+  response?: {
+    data: string;
+  };
+  message: string;
+}
 
 export const TableService: React.FC<TablesProps> = ({ title, data, reset }) => {
   const [workRecord, setWorkRecord] = useState<IWorkRecord[]>([]);
@@ -169,14 +175,13 @@ export const TableService: React.FC<TablesProps> = ({ title, data, reset }) => {
             throw new Error("Error al finalizar el registro");
           }
         } catch (error) {
-          console.error(
-            "Error en Axios:",
-            error?.response ? error.response.data : error.message
-          );
+          const err = error as ErrorWithResponse;
+          const errorMessage = err.response ? err.response.data : err.message;
+
           Swal.fire({
             icon: "error",
             title: "Error",
-            text: "Hubo un problema al finalizar el trabajo. Inténtalo nuevamente.",
+            text: errorMessage,
             confirmButtonText: "OK",
           });
         }
@@ -223,14 +228,13 @@ export const TableService: React.FC<TablesProps> = ({ title, data, reset }) => {
             throw new Error("Error al finalizar el registro");
           }
         } catch (error) {
-          console.error(
-            "Error en Axios:",
-            error?.response ? error.response.data : error.message
-          );
+          const err = error as ErrorWithResponse;
+          const errorMessage = err.response ? err.response.data : err.message;
+
           Swal.fire({
             icon: "error",
             title: "Error",
-            text: "Hubo un problema al finalizar el trabajo. Inténtalo nuevamente.",
+            text: errorMessage,
             confirmButtonText: "OK",
           });
         }
