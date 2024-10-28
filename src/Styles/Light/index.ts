@@ -18,13 +18,13 @@ declare module "@mui/material/styles" {
       };
     };
     inputGrupColor?: {
-      icon?: string; // Color del ícono del input
-      border?: string; // Color del borde del input
-      hoverBorder?: string; // Color del borde en hover del input
-      focusBorder?: string; // Color del borde cuando el input tiene foco
-      textColor?: string; // Color del texto del input
-      labelColor?: string; // Color del label del input
-      labelFocusedColor?: string; // Color del label cuando está enfocado
+      icon?: string;
+      border?: string;
+      hoverBorder?: string;
+      focusBorder?: string;
+      textColor?: string;
+      labelColor?: string;
+      labelFocusedColor?: string;
     };
     boxShadow: string;
     shadow?: {
@@ -61,8 +61,15 @@ declare module "@mui/material/styles" {
     iconColoDollar?: {
       color?: string;
     };
+    modal?: {
+      background?: string;
+      borderColor?: string;
+      boxShadow?: string;
+      textColor?: string;
+    };
   }
 }
+
 export const Light = createTheme({
   palette: {
     mode: "light",
@@ -125,6 +132,12 @@ export const Light = createTheme({
         width: "50px",
         height: "50px",
         borderRadius: "50%",
+      },
+      modal: {
+        background: "#FFFFFF",
+        borderColor: "#1565C0",
+        boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.2)",
+        textColor: "#333333",
       },
     },
     text: {

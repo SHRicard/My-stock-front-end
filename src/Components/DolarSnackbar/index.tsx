@@ -1,20 +1,20 @@
-import * as React from "react";
 import { SnackbarProvider, useSnackbar } from "notistack";
 import { useDollarData } from "../../Hooks";
 import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import { useEffect, useState } from "react";
 
 export const DolarSnackbar = () => {
   const { enqueueSnackbar } = useSnackbar();
   const { dollarData, fetchDollarData } = useDollarData();
   const theme = useTheme();
-  const [snackbarShown, setSnackbarShown] = React.useState(false);
+  const [snackbarShown, setSnackbarShown] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetchDollarData();
   }, [fetchDollarData]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (dollarData && !snackbarShown) {
       const { blue } = dollarData;
 

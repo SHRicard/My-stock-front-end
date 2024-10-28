@@ -48,13 +48,14 @@ export const Login = () => {
       }
 
       sessionStorage.setItem("authToken", response.token);
-      dispatch(login());
-    } catch (error: any) {
+      dispatch(login({ username })); // Pasa el username obtenido del formulario
+    } catch (error) {
       setError("username", {
         type: "manual",
         message: "Error de autenticación",
       });
-      console.error("Error en la autenticación:", error.message);
+      const errorMessage = (error as Error).message ?? "Error desconocido";
+      console.error("Error en la autenticación:", errorMessage);
     }
   };
 

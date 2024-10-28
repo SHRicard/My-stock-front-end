@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { CBadge, CCol, CRow } from "@coreui/react";
 import { Alert, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import {
   AccordionsUserData,
-  BtnBack,
   BtnSmall,
   Loading,
   Paginations,
@@ -61,19 +60,16 @@ export const Data = () => {
     setCurrentLoading(loading);
   }, [data, page, totalPages, loading]);
 
-  const handlePageChange = (
-    event: React.ChangeEvent<unknown>,
-    value: number
-  ) => {
+  const handlePageChange = (value: number) => {
     setPage(value);
   };
 
   const searchMonths = (months: string, userId: string) => {
     setUserId(userId);
-    setSearchTerm(months);
+    setSearchTerm?.(months);
   };
   const resetFilters = () => {
-    setSearchTerm("");
+    setSearchTerm?.("");
   };
   return (
     <CRow className="d-flex justify-content-center">
@@ -181,7 +177,7 @@ export const Data = () => {
         <Paginations
           currentPage={currentPage}
           totalPages={currentTotalPage}
-          onPageChange={handlePageChange}
+          onPageChange={() => handlePageChange}
         />
       </CCol>
     </CRow>

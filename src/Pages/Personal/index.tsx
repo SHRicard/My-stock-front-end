@@ -41,10 +41,7 @@ export const Personal = () => {
     }
   }, [filteredData, users]);
 
-  const handlePageChange = (
-    event: React.ChangeEvent<unknown>,
-    value: number
-  ) => {
+  const handlePageChange = (value: number) => {
     setPage(value);
   };
 
@@ -121,7 +118,7 @@ export const Personal = () => {
         <Paginations
           currentPage={page}
           totalPages={totalPages}
-          onPageChange={handlePageChange}
+          onPageChange={() => handlePageChange}
         />
       </CCol>
     </CContainer>

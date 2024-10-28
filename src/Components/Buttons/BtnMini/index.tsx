@@ -1,4 +1,3 @@
-import React from "react";
 import { Button, Typography } from "@mui/material";
 import { FaStreetView } from "react-icons/fa6";
 import { useTheme } from "@mui/material/styles";

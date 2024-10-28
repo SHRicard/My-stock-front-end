@@ -8,6 +8,7 @@ interface LoginData {
 
 export const loginUser = async (loginData: LoginData) => {
   const URL_LOGIN = import.meta.env.VITE_LOGIN;
+  console.log({ URL_LOGIN, loginData });
   try {
     const response = await axios.post(URL_LOGIN, loginData);
 

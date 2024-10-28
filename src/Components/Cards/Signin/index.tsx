@@ -1,4 +1,3 @@
-import * as React from "react";
 import { Typography, useTheme } from "@mui/material";
 import { CAvatar, CCol, CRow } from "@coreui/react";
 import { CiLock } from "react-icons/ci";

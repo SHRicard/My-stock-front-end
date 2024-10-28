@@ -3,14 +3,18 @@ import { CCol, CRow } from "@coreui/react";
 import { Btn } from "../../Buttons";
 import { useTheme } from "@mui/material/styles";
 
+interface IData {
+  name: string;
+}
+
 interface IModal {
   handleOpen: boolean;
   closeModal: (open: boolean) => void;
-  personalData: unknown;
+  personalData: IData;
 }
 
 export const ViewData = ({ handleOpen, closeModal, personalData }: IModal) => {
-  const theme = useTheme(); // Usamos el tema para acceder a los valores de modal
+  const theme = useTheme();
 
   const style = {
     position: "absolute" as const,
@@ -19,9 +23,9 @@ export const ViewData = ({ handleOpen, closeModal, personalData }: IModal) => {
     transform: "translate(-50%, -50%)",
     width: { xs: 360, sm: 360, md: 800 },
     height: { xs: "95%", sm: "95%", md: "50%" },
-    bgcolor: theme.palette.background.modal.background, // Aplicamos fondo del modal
-    border: `2px solid ${theme.palette.background.modal.borderColor}`, // Borde del modal
-    boxShadow: theme.palette.background.modal.boxShadow, // Sombra del modal
+    bgcolor: theme.palette.background.modal?.background,
+    border: `2px solid ${theme.palette.background?.modal?.borderColor}`,
+    boxShadow: theme.palette.background?.modal?.boxShadow,
     p: 4,
   };
 
@@ -42,13 +46,13 @@ export const ViewData = ({ handleOpen, closeModal, personalData }: IModal) => {
                 id="modal-title"
                 variant="h6"
                 component="h2"
-                sx={{ color: theme.palette.background.modal.textColor }} // Aplicamos color del texto
+                sx={{ color: theme.palette.background.modal?.textColor }} // Aplicamos color del texto
               >
                 Datos de {personalData?.name}
               </Typography>
               <Typography
                 id="modal-description"
-                sx={{ mt: 2, color: theme.palette.background.modal.textColor }} // Aplicamos color del texto
+                sx={{ mt: 2, color: theme.palette.background.modal?.textColor }} // Aplicamos color del texto
               >
                 Por favor ingrese los datos del personal
               </Typography>

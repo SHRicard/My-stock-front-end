@@ -1,5 +1,5 @@
 import { CCol, CContainer } from "@coreui/react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Paginations,
   PopupProduct,
@@ -68,10 +68,7 @@ export const Products = () => {
     }
   }, [filteredData, products]);
 
-  const handlePageChange = (
-    event: React.ChangeEvent<unknown>,
-    value: number
-  ) => {
+  const handlePageChange = (value: number) => {
     if (searchTerm) {
       setFilterPage(value);
     } else setPage(value);
@@ -160,7 +157,7 @@ export const Products = () => {
         <Paginations
           currentPage={currentPage}
           totalPages={currentTotalPages}
-          onPageChange={handlePageChange}
+          onPageChange={() => handlePageChange}
         />
       </CCol>
     </CContainer>
