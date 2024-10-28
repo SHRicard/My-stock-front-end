@@ -13,13 +13,7 @@ import { Logo } from "./Logo";
 import { UserName, Password, Check, Text, DateInput } from "./Input";
 import { Signin } from "./Cards";
 import { Paginations } from "./Pagination";
-import {
-  OnServiceTable,
-  TableData,
-  OffServiceTable,
-  TablaProducts,
-  TableService,
-} from "./Table";
+import { TableData, TablaProducts, TableService } from "./Table";
 import { Search } from "./SearchUsers";
 import { ViewData } from "./Modal";
 import { TimeTracker } from "./TimeTracker";
@@ -41,13 +35,11 @@ export {
   Check,
   MiniText,
   Paginations,
-  OnServiceTable,
   Search,
   ViewData,
   TableData,
   BtnMini,
   Text,
-  OffServiceTable,
   BtnSubmit,
   TimeTracker,
   Popup,
