@@ -27,7 +27,7 @@ export const Login = () => {
   });
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    const { username, password, rememberMe = true } = data;
+    const { username, password, rememberMe } = data;
 
     try {
       const response = await loginUser({ username, password, rememberMe });
