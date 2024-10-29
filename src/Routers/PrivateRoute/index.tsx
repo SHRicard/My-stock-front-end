@@ -1,7 +1,15 @@
 import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../../Store";
 
 export const PrivateRoute = ({ children }: { children: JSX.Element }) => {
-  const isAuthenticated = localStorage.getItem("authToken") !== null;
+  const isAuthenticated = useSelector(
+    (state: RootState) => state.auth.isAuthenticated
+  );
 
-  return isAuthenticated ? children : <Navigate to="/" />;
+  if (!isAuthenticated) {
+    return <Navigate to="/" />;
+  }
+
+  return children;
 };
