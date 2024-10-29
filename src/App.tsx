@@ -11,7 +11,7 @@ import { login } from "./Store/Slices/authSilice";
 
 export const App = () => {
   const themeMode = useSelector((state: RootState) => state.theme.mode);
-
+  const URL_ENDPOINT = import.meta.env.VITE_PING;
   useEffect(() => {
     document.body.className = themeMode === "dark" ? "dark" : "light";
   }, [themeMode]);
@@ -36,6 +36,16 @@ export const App = () => {
       }
     }
   }, [dispatch]);
+
+  useEffect(() => {
+    const intervalId = setInterval(
+      () => {
+        fetch(URL_ENDPOINT).catch((error) => console.log("Ping error:", error));
+      },
+      5 * 60 * 1000
+    );
+    return () => clearInterval(intervalId);
+  }, []);
 
   const appliedTheme = themeMode === "dark" ? Dark : Light;
 

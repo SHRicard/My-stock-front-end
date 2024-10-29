@@ -10,7 +10,6 @@ import { CalculateWorkHours } from "./CalculateHours";
 import { FormatDate } from "./FormatDate";
 import { FormatPrice } from "./FormatPrice";
 import { isValidDimension } from "./IsValidDimension";
-import { isTokenValid } from "./Token";
 import { recordType } from "./RecordType";
 
 export {
@@ -26,6 +25,5 @@ export {
   FormatDate,
   FormatPrice,
   isValidDimension,
-  isTokenValid,
   recordType,
 };
