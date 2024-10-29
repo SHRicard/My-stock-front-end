@@ -7,9 +7,9 @@ interface LoginData {
 }
 
 export const loginUser = async (loginData: LoginData) => {
-  const URL_LOGIN = import.meta.env.VITE_LOGIN;
+  const URL_ENDPOINT = import.meta.env.VITE_LOGIN;
   try {
-    const response = await axios.post(URL_LOGIN, {
+    const response = await axios.post(URL_ENDPOINT, {
       username: loginData.username,
       password: loginData.password,
       rememberMe: true,
