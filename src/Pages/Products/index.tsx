@@ -100,7 +100,17 @@ export const Products = () => {
       });
 
       if (result.isConfirmed) {
+        Swal.fire({
+          title: "Cargando...",
+          text: "Procesando los datos, por favor espera.",
+          allowOutsideClick: false,
+          didOpen: () => {
+            Swal.showLoading();
+          },
+        });
+
         const response = await axios.delete(`${URL_ENDPOINT}/${productsId}`);
+
         if (response.status === 204) {
           Swal.fire({
             icon: "success",

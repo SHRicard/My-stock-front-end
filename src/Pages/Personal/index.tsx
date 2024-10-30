@@ -61,6 +61,7 @@ export const Personal = () => {
   const deleteUser = async (user: PersonalData) => {
     const userId = user.id;
     const URL_ENDPOINT = API_URLS.USER_DELETE;
+
     try {
       const result = await Swal.fire({
         title: "¿Estás seguro?",
@@ -74,7 +75,17 @@ export const Personal = () => {
       });
 
       if (result.isConfirmed) {
+        Swal.fire({
+          title: "Cargando...",
+          text: "Procesando los datos, por favor espera.",
+          allowOutsideClick: false,
+          didOpen: () => {
+            Swal.showLoading();
+          },
+        });
+
         const response = await axios.delete(`${URL_ENDPOINT}/${userId}`);
+
         if (response.status === 204) {
           Swal.fire({
             icon: "success",
