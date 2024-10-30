@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { API_URLS } from "../../../service/apiConfig";
 
 interface IFormInput {
   name: string;
@@ -29,7 +30,7 @@ export const Update = () => {
     shouldUseNativeValidation: false,
   });
   const { userId } = useParams();
-  const URL_ENDPOINT = import.meta.env.VITE_USER_SEARCH_ID;
+  const URL_ENDPOINT = API_URLS.USER_SEARCH_ID;
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -65,7 +66,7 @@ export const Update = () => {
   }, [userId, setValue]);
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    const URL_ENDPOINT = import.meta.env.VITE_USER_SEARCH_UPDATE;
+    const URL_ENDPOINT = API_URLS.USER_SEARCH_UPDATE;
 
     let haveErrors = false;
     let errorMessages = "";

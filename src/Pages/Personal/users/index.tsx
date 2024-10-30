@@ -9,6 +9,7 @@ import { setUpdated } from "../../../Store/Slices/updateSlice";
 import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { API_URLS } from "../../../service/apiConfig";
 
 interface IFormInput {
   name: string;
@@ -30,7 +31,7 @@ export const Users = () => {
   const dispatch = useDispatch();
   const theme = useTheme();
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    const URL_ENDPOINT = import.meta.env.VITE_USER_CREATE;
+    const URL_ENDPOINT = API_URLS.USER_CREATE;
     let haveErrors = false;
     let errorMessages = "";
 

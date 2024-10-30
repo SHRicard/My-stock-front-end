@@ -15,6 +15,7 @@ import moment from "moment";
 import axios from "../../service/httpService";
 import { IWorkRecord, IPersonalData } from "../../interface";
 import { Alert } from "@mui/material";
+import { API_URLS } from "../../service/apiConfig";
 
 interface IFormInput {
   startBackup: string;
@@ -80,7 +81,8 @@ export const Dashboard = () => {
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     const startBackup = data.startBackup;
     const endBackup = data.endBackup;
-    const URL_ENDPOINT = import.meta.env.VITE_BACKUP;
+    const URL_ENDPOINT = API_URLS.BACKUP;
+
     Swal.fire({
       title: "Generando backup...",
       text: "Por favor espera mientras se genera el archivo.",

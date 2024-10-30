@@ -12,6 +12,7 @@ import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
 import axios from "../../service/httpService";
 import { setUpdated } from "../../Store/Slices/updateSlice";
+import { API_URLS } from "../../service/apiConfig";
 
 interface IProduct {
   id: string;
@@ -84,7 +85,8 @@ export const Products = () => {
   };
   const deleteUser = async (products: IProduct) => {
     const productsId = products.id;
-    const URL_ENDPOINT = import.meta.env.VITE_PRODUCTS_DELETE;
+    const URL_ENDPOINT = API_URLS.PRODUCTS_DELETE;
+
     try {
       const result = await Swal.fire({
         title: "¿Estás seguro?",

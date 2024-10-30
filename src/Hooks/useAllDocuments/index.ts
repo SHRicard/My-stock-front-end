@@ -4,6 +4,7 @@ import axios from "../../service/httpService";
 import { useDispatch, useSelector } from "react-redux";
 import { setUpdated } from "../../Store/Slices/updateSlice";
 import { RootState } from "../../Store";
+import { API_URLS } from "../../service/apiConfig";
 
 interface IUseAllDocuments<T> {
   data: T[];
@@ -23,7 +24,7 @@ export const useAllDocuments = <T>(limit: number): IUseAllDocuments<T> => {
 
   const updated = useSelector((state: RootState) => state.update.updated);
   const dispatch = useDispatch();
-  const URL_ENDPOINT = import.meta.env.VITE_WORKE_RECORDS_ACTIVE;
+  const URL_ENDPOINT = API_URLS.WORK_RECORDS_ACTIVE;
 
   useEffect(() => {
     const fetchData = async () => {

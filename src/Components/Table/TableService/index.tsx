@@ -19,6 +19,7 @@ import { setUpdated } from "../../../Store/Slices/updateSlice";
 import { Loading } from "../../Loading";
 import { Popup } from "../../Popup";
 import { TimeTracker } from "../../TimeTracker";
+import { API_URLS } from "../../../service/apiConfig";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -83,7 +84,7 @@ export const TableService: React.FC<TablesProps> = ({ title, data, reset }) => {
   const handleClose = () => setOpen(false);
 
   const onWorker = (personal: IPersonalData) => {
-    const URL_ENDPOINT = import.meta.env.VITE_WORKE_RECORDS_START;
+    const URL_ENDPOINT = API_URLS.WORK_RECORDS_START;
     const documents = {
       profile: {
         id: personal.id,
@@ -138,7 +139,8 @@ export const TableService: React.FC<TablesProps> = ({ title, data, reset }) => {
   };
 
   const offWorker = (personal: IPersonalData) => {
-    const URL_ENDPOINT = import.meta.env.VITE_WORKE_RECORDS_END;
+    const URL_ENDPOINT = API_URLS.WORK_RECORDS_END;
+
     const documents = {
       id: personal.id,
     };
@@ -190,7 +192,8 @@ export const TableService: React.FC<TablesProps> = ({ title, data, reset }) => {
   };
 
   const closeRecord = (record: IWorkRecord) => {
-    const URL_ENDPOINT = import.meta.env.VITE_WORKE_CLOSE_RECORDS;
+    const URL_ENDPOINT = API_URLS.WORK_CLOSE_RECORDS;
+
     const documents = {
       recordId: record.id,
       userId: record.profile.id,

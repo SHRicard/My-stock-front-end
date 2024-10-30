@@ -17,6 +17,7 @@ import { Btn, BtnMini } from "../Buttons";
 import CloseIcon from "@mui/icons-material/Close";
 import { useDispatch } from "react-redux";
 import { setUpdated } from "../../Store/Slices/updateSlice";
+import { API_URLS } from "../../service/apiConfig";
 
 interface IProduct {
   id: string;
@@ -57,7 +58,7 @@ export const PopupProduct: React.FC<PopupFormProps> = ({
       registerId: currentProduct.id,
       count: count,
     };
-    const URL_ENDPOINT = import.meta.env.VITE_PRODUCTS_UPDATE_COUNT;
+    const URL_ENDPOINT = API_URLS.PRODUCTS_UPDATE_COUNT;
 
     setLoading(true);
     setTimeout(async () => {

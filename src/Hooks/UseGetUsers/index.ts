@@ -4,6 +4,7 @@ import axios from "../../service/httpService";
 import { useDispatch, useSelector } from "react-redux";
 import { setUpdated } from "../../Store/Slices/updateSlice";
 import { RootState } from "../../Store";
+import { API_URLS } from "../../service/apiConfig";
 
 interface UseUsersResult<T> {
   data: T[];
@@ -24,7 +25,7 @@ export const UseGetUsers = <T>(limit: number): UseUsersResult<T> => {
   const updated = useSelector((state: RootState) => state.update.updated);
   const dispatch = useDispatch();
 
-  const URL_ENDPOINT = import.meta.env.VITE_USER_ALL;
+  const URL_ENDPOINT = API_URLS.USER_ALL;
 
   useEffect(() => {
     const fetchData = async () => {

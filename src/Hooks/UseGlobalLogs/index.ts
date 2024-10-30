@@ -4,6 +4,7 @@ import axios from "../../service/httpService";
 import { useDispatch, useSelector } from "react-redux";
 import { setUpdated } from "../../Store/Slices/updateSlice";
 import { RootState } from "../../Store";
+import { API_URLS } from "../../service/apiConfig";
 
 interface UseLogsResult<T> {
   data: T[];
@@ -27,8 +28,8 @@ export const UseGlobalLogs = <T>(limit: number): UseLogsResult<T> => {
   const updated = useSelector((state: RootState) => state.update.updated);
   const dispatch = useDispatch();
 
-  const MOSTHS = import.meta.env.VITE_GLOBAL_LOGS_MONTHS;
-  const ALL_LOGS = import.meta.env.VITE_GLOBAL_LOGS_ALL;
+  const MOSTHS = API_URLS.GLOBAL_LOGS_MONTHS;
+  const ALL_LOGS = API_URLS.GLOBAL_LOGS_ALL;
 
   const URL_ENDPOINT = searchTerm ? MOSTHS : ALL_LOGS;
 
