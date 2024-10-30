@@ -31,7 +31,6 @@ export const Login = () => {
 
     try {
       const response = await loginUser({ username, password, rememberMe });
-      console.log({ response });
 
       if (!response.success) {
         if (response.message.includes("Usuario")) {
