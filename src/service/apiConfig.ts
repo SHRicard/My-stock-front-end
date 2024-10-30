@@ -3,9 +3,9 @@
 // Determinamos la URL base según el modo de entorno definido en .env
 const BASE_URL =
   import.meta.env.VITE_MODE === "production"
-    ? import.meta.env.PRODUCCION_URL
-    : import.meta.env.DEMO_URL;
-
+    ? import.meta.env.VITE_PRODUCCION_URL
+    : import.meta.env.VITE_DEMO_URL;
+console.log({ BASE_URL });
 export const API_URLS = {
   // Usuarios
   USER_ALL: `${BASE_URL}/users`,

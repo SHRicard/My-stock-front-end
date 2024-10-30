@@ -9,6 +9,7 @@ interface LoginData {
 
 export const loginUser = async (loginData: LoginData) => {
   const URL_ENDPOINT = API_URLS.LOGIN;
+  console.log({ URL_ENDPOINT });
 
   try {
     const response = await axios.post(URL_ENDPOINT, {
@@ -16,7 +17,6 @@ export const loginUser = async (loginData: LoginData) => {
       password: loginData.password,
       rememberMe: true,
     });
-
     if (response.data.token) {
       sessionStorage.setItem("authToken", response.data.token);
       sessionStorage.setItem("username", response.data.name);
