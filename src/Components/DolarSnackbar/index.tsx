@@ -43,7 +43,7 @@ export const DolarSnackbar = () => {
               theme?.palette?.background.snackbar?.backgroundColor,
             boxShadow: theme?.palette?.background.snackbar?.boxShadow,
           },
-          autoHideDuration: 5000, // Duración automática del snackbar
+          autoHideDuration: 10000, // Duración automática del snackbar
         }
       );
       setSnackbarShown(true);
