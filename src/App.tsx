@@ -8,10 +8,11 @@ import { AppRoutes } from "./Routers";
 import { Dark, Light } from "./Styles";
 import { jwtDecode } from "jwt-decode";
 import { login } from "./Store/Slices/authSilice";
+import { API_URLS } from "./service/apiConfig";
 
 export const App = () => {
   const themeMode = useSelector((state: RootState) => state.theme.mode);
-  const URL_ENDPOINT = import.meta.env.VITE_PING;
+  const URL_ENDPOINT = API_URLS.PING;
   useEffect(() => {
     document.body.className = themeMode === "dark" ? "dark" : "light";
   }, [themeMode]);
