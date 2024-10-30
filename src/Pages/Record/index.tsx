@@ -36,7 +36,7 @@ export const Record = () => {
     loading,
   } = UseGlobalLogs<IGlobalLogs>(itemsPerPage);
 
-  const handlePageChange = (value: number) => {
+  const handlePageChange = (_: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
 
@@ -141,7 +141,7 @@ export const Record = () => {
         <Paginations
           currentPage={page}
           totalPages={totalPages}
-          onPageChange={() => handlePageChange}
+          onPageChange={handlePageChange}
         />
       </CCol>
     </CContainer>

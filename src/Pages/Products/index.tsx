@@ -69,7 +69,7 @@ export const Products = () => {
     }
   }, [filteredData, products]);
 
-  const handlePageChange = (value: number) => {
+  const handlePageChange = (_: React.ChangeEvent<unknown>, value: number) => {
     if (searchTerm) {
       setFilterPage(value);
     } else setPage(value);
@@ -83,7 +83,7 @@ export const Products = () => {
     const productsId = products.id;
     navigate(`/Dashboard/Producto/Editar/${productsId}`);
   };
-  const deleteUser = async (products: IProduct) => {
+  const deleteProduct = async (products: IProduct) => {
     const productsId = products.id;
     const URL_ENDPOINT = API_URLS.PRODUCTS_DELETE;
 
@@ -102,7 +102,13 @@ export const Products = () => {
       if (result.isConfirmed) {
         const response = await axios.delete(`${URL_ENDPOINT}/${productsId}`);
         if (response.status === 204) {
-          Swal.fire("¡Borrado!", "El Producto ha sido eliminado.", "success");
+          Swal.fire({
+            icon: "success",
+            title: "Éxito",
+            text: "El Producto ha sido eliminado.",
+            timer: 1000,
+            confirmButtonText: "OK",
+          });
           dispatch(setUpdated(true));
         } else {
           Swal.fire(
@@ -147,7 +153,7 @@ export const Products = () => {
         title={"Datos del Producto"}
         onData={addData}
         onUpdate={handleUpdate}
-        onDelete={deleteUser}
+        onDelete={deleteProduct}
       />
       <PopupProduct
         open={open}
@@ -159,7 +165,7 @@ export const Products = () => {
         <Paginations
           currentPage={currentPage}
           totalPages={currentTotalPages}
-          onPageChange={() => handlePageChange}
+          onPageChange={handlePageChange}
         />
       </CCol>
     </CContainer>

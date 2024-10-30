@@ -70,7 +70,7 @@ export const Dashboard = () => {
     }
   }, [filteredData, data]);
 
-  const handlePageChange = (value: number) => {
+  const handlePageChange = (_: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
 
@@ -173,7 +173,7 @@ export const Dashboard = () => {
         <Paginations
           currentPage={currentPage}
           totalPages={currentTotalPages}
-          onPageChange={() => handlePageChange}
+          onPageChange={handlePageChange}
         />
       </CCol>
       <CForm onSubmit={handleSubmit(onSubmit)}>

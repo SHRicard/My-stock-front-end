@@ -34,10 +34,11 @@ interface IAccordions {
 export const AccordionsUserData = ({ documents }: IAccordions) => {
   const [expanded, setExpanded] = useState<string | false>(false);
   const theme = useTheme();
-  const handleChange = (panel: string) => (isExpanded: boolean) => {
-    setExpanded(isExpanded ? panel : false);
-  };
 
+  const handleChange =
+    (panel: string) => (_: React.SyntheticEvent, isExpanded: boolean) => {
+      setExpanded(isExpanded ? panel : false);
+    };
   return (
     <Accordion
       key={documents.id}
@@ -53,7 +54,7 @@ export const AccordionsUserData = ({ documents }: IAccordions) => {
         },
       }}
       expanded={expanded === documents.id}
-      onChange={() => handleChange(documents.id)}
+      onChange={handleChange(documents.id)}
     >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}

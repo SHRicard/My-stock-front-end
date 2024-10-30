@@ -24,9 +24,10 @@ export interface IGlobalLogs {
 export const AccordionsGlobalLogs = ({ data }: { data: IGlobalLogs }) => {
   const [expanded, setExpanded] = useState<string | false>(false);
   const theme = useTheme();
-  const handleChange = (panel: string) => (isExpanded: boolean) => {
-    setExpanded(isExpanded ? panel : false);
-  };
+  const handleChange =
+    (panel: string) => (_: React.SyntheticEvent, isExpanded: boolean) => {
+      setExpanded(isExpanded ? panel : false);
+    };
 
   return (
     <Accordion
@@ -43,7 +44,7 @@ export const AccordionsGlobalLogs = ({ data }: { data: IGlobalLogs }) => {
         },
       }}
       expanded={expanded === data.id}
-      onChange={() => handleChange(data.id || "")}
+      onChange={handleChange(data.id ?? "")}
     >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}

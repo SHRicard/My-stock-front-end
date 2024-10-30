@@ -79,48 +79,46 @@ export const TablaProducts: React.FC<TablesProps> = ({
               ))}
             </TableRow>
           </TableHead>
-          {loading === true ? (
+          {loading === true && (
             <TableCell colSpan={columnTitles.length} align="center">
               <Alert severity="warning">Cargando Datos</Alert>
             </TableCell>
-          ) : (
-            <TableBody>
-              {data && data?.length === 0 ? (
-                <TableRow>
-                  <TableCell colSpan={columnTitles.length} align="center">
-                    <Alert severity="warning">
-                      No hay datos disponibles del Personal
-                    </Alert>
-                  </TableCell>
-                </TableRow>
-              ) : (
-                data &&
-                data?.length &&
-                data?.map((row) => (
-                  <StyledTableRow key={row.id}>
-                    <StyledTableCell>{Capitalize(row.name)}</StyledTableCell>
-                    <StyledTableCell>
-                      {Capitalize(row.dimension)}
-                    </StyledTableCell>
-                    <StyledTableCell>{Capitalize(row.price)}</StyledTableCell>
-                    <StyledTableCell>{row.quantity}</StyledTableCell>
-
-                    <StyledTableCell>
-                      <BtnMini onClick={() => onDelete(row)} type="delete" />
-                    </StyledTableCell>
-
-                    <StyledTableCell>
-                      <BtnMini onClick={() => onUpdate(row)} type="update" />
-                    </StyledTableCell>
-
-                    <StyledTableCell>
-                      <BtnMini onClick={() => onData(row)} type="data" />
-                    </StyledTableCell>
-                  </StyledTableRow>
-                ))
-              )}
-            </TableBody>
           )}
+
+          <TableBody>
+            {data && data?.length === 0 ? (
+              <TableRow>
+                <TableCell colSpan={columnTitles.length} align="center">
+                  <Alert severity="warning">
+                    No hay datos disponibles de los Productos
+                  </Alert>
+                </TableCell>
+              </TableRow>
+            ) : (
+              data &&
+              data?.length &&
+              data?.map((row) => (
+                <StyledTableRow key={row.id}>
+                  <StyledTableCell>{Capitalize(row.name)}</StyledTableCell>
+                  <StyledTableCell>{Capitalize(row.dimension)}</StyledTableCell>
+                  <StyledTableCell>{Capitalize(row.price)}</StyledTableCell>
+                  <StyledTableCell>{row.quantity}</StyledTableCell>
+
+                  <StyledTableCell>
+                    <BtnMini onClick={() => onDelete(row)} type="delete" />
+                  </StyledTableCell>
+
+                  <StyledTableCell>
+                    <BtnMini onClick={() => onUpdate(row)} type="update" />
+                  </StyledTableCell>
+
+                  <StyledTableCell>
+                    <BtnMini onClick={() => onData(row)} type="data" />
+                  </StyledTableCell>
+                </StyledTableRow>
+              ))
+            )}
+          </TableBody>
         </Table>
       </TableContainer>
     </CCol>

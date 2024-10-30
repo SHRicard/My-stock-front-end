@@ -25,10 +25,10 @@ export const API_URLS = {
   WORK_CLOSE_RECORDS: `${BASE_URL}/work-records/close-records`,
 
   // Productos
+  PRODUCTS: `${BASE_URL}/products`,
   PRODUCTS_UPDATE: `${BASE_URL}/products/update`,
   PRODUCTS_UPDATE_COUNT: `${BASE_URL}/products/update/count`,
   PRODUCTS_SEARCH: `${BASE_URL}/products/search`,
-  PRODUCTS: `${BASE_URL}/products`,
   PRODUCTS_DELETE: `${BASE_URL}/products/delete`,
   PRODUCTS_CREATE: `${BASE_URL}/products/create`,
 
@@ -44,4 +44,7 @@ export const API_URLS = {
 
   // Ping
   PING: `${BASE_URL}/ping`,
+
+  //Dolar
+  DOLAR_BLUE: `${BASE_URL}/dollar-blue`,
 };
