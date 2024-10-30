@@ -221,7 +221,7 @@ export const Create = () => {
                 style={{
                   margin: "1px",
                   padding: "8px",
-                  backgroundColor: "transparent",
+                  backgroundColor: theme.palette.background.main,
                   border: `1px solid ${theme.palette.background.inputGrupColor?.border}`,
                   color: theme.palette.text.primary,
                   boxShadow: "0 0 10px rgba(138, 43, 226, 0.5)",

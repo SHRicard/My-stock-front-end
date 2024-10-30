@@ -42,7 +42,7 @@ export const Personal = () => {
     }
   }, [filteredData, users]);
 
-  const handlePageChange = (value: number) => {
+  const handlePageChange = (_: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
 
@@ -76,7 +76,13 @@ export const Personal = () => {
       if (result.isConfirmed) {
         const response = await axios.delete(`${URL_ENDPOINT}/${userId}`);
         if (response.status === 204) {
-          Swal.fire("¡Borrado!", "El usuario ha sido eliminado.", "success");
+          Swal.fire({
+            icon: "success",
+            title: "Éxito",
+            text: "El usuario ha sido eliminado.",
+            timer: 1000,
+            confirmButtonText: "OK",
+          });
           dispatch(setUpdated(true));
         } else {
           Swal.fire("Error", "Hubo un problema al borrar el usuario.", "error");
@@ -119,7 +125,7 @@ export const Personal = () => {
         <Paginations
           currentPage={page}
           totalPages={totalPages}
-          onPageChange={() => handlePageChange}
+          onPageChange={handlePageChange}
         />
       </CCol>
     </CContainer>

@@ -126,6 +126,7 @@ export const Update = () => {
               icon: "success",
               title: "Éxito",
               text: "El trabajador ha sido Actualizado exitosamente.",
+              timer: 1000,
               confirmButtonText: "OK",
             });
             dispatch(setUpdated(true));

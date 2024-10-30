@@ -60,7 +60,7 @@ export const Data = () => {
     setCurrentLoading(loading);
   }, [data, page, totalPages, loading]);
 
-  const handlePageChange = (value: number) => {
+  const handlePageChange = (_: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
 
@@ -177,7 +177,7 @@ export const Data = () => {
         <Paginations
           currentPage={currentPage}
           totalPages={currentTotalPage}
-          onPageChange={() => handlePageChange}
+          onPageChange={handlePageChange}
         />
       </CCol>
     </CRow>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "../../service/httpService";
+import { API_URLS } from "../../service/apiConfig";
 
 interface DollarData {
   blue: {
@@ -14,8 +15,8 @@ export const useDollarData = () => {
 
   const fetchDollarData = async () => {
     try {
-      // Hacemos la solicitud a nuestro backend
-      const { data } = await axios.get("http://localhost:3000/dollar-blue");
+      const URL_ENDPOINT = API_URLS.DOLAR_BLUE;
+      const { data } = await axios.get(URL_ENDPOINT);
 
       if (data.success) {
         setDollarData({
