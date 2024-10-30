@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "../../service/httpService";
+import { API_URLS } from "../../service/apiConfig";
 
 interface ProductService {
   id: string;
@@ -19,7 +20,7 @@ export const useFilterProducts = () => {
   const [filterPage, setFilterPage] = useState<number>(1);
   const [filterTotalPages, setFilterTotalPages] = useState<number>(1);
 
-  const URL_ENDPOINT = import.meta.env.VITE_PRODUCTS_SEARCH;
+  const URL_ENDPOINT = API_URLS.PRODUCTS_SEARCH;
 
   useEffect(() => {
     const fetchFilteredData = async () => {

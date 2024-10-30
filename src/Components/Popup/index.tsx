@@ -17,6 +17,7 @@ import { Btn, BtnSubmit } from "../Buttons";
 import { Capitalize } from "../../Utils";
 import CloseIcon from "@mui/icons-material/Close";
 import { IWorkRecord } from "../../interface";
+import { API_URLS } from "../../service/apiConfig";
 
 interface FormData {
   details: string;
@@ -57,7 +58,7 @@ export const Popup: React.FC<IPopup> = ({
   }, [open, reset]);
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
-    const URL_ENDPOINT = import.meta.env.VITE_WORKE_RECORDS_ADD_DETAILS;
+    const URL_ENDPOINT = API_URLS.WORK_RECORDS_ADD_DETAILS;
 
     const newDetails = {
       registerId: currentUser?.id,

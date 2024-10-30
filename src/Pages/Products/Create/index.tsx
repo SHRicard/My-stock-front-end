@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FormatPrice, ToLowerCase } from "../../../Utils";
 import { setUpdated } from "../../../Store/Slices/updateSlice";
+import { API_URLS } from "../../../service/apiConfig";
 
 interface IFormInput {
   name: string;
@@ -41,7 +42,8 @@ export const Create = () => {
   };
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    const URL_ENDPOINT = import.meta.env.VITE_PRODUCTS_CREATE;
+    const URL_ENDPOINT = API_URLS.PRODUCTS_CREATE;
+
     let haveErrors = false;
     let errorMessages = "";
 

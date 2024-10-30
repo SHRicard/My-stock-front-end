@@ -10,6 +10,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FormatPrice, ToLowerCase } from "../../../Utils";
 import { setUpdated } from "../../../Store/Slices/updateSlice";
+import { API_URLS } from "../../../service/apiConfig";
 
 interface IFormInput {
   id: string;
@@ -94,7 +95,7 @@ export const UpdateProducts = () => {
           price: `${FormatPrice(data.price)} $`,
         };
 
-        const URL_ENDPOINT = import.meta.env.VITE_PRODUCTS_UPDATE;
+        const URL_ENDPOINT = API_URLS.PRODUCTS_UPDATE;
 
         try {
           const response = await axios.put(
@@ -139,7 +140,8 @@ export const UpdateProducts = () => {
     const fetchUserData = async () => {
       try {
         setLoading(true);
-        const URL_ENDPOINT = import.meta.env.VITE_PRODUCTS_SEARCH;
+        const URL_ENDPOINT = API_URLS.PRODUCTS_SEARCH;
+
         const response = await axios.get(`${URL_ENDPOINT}/${productsId}`);
 
         if (response.status >= 200 && response.status < 300) {

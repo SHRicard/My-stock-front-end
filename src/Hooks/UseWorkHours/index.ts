@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "../../service/httpService";
 
 import Swal from "sweetalert2";
+import { API_URLS } from "../../service/apiConfig";
 
 interface IUseWorkHours<T> {
   data: T[];
@@ -27,8 +28,8 @@ export const UseWorkHours = <T>(): IUseWorkHours<T> => {
 
   const limit = 4;
 
-  const MONTHS = import.meta.env.VITE_WORKE_HOURS_SEARCH_MONTHS;
-  const RECORDS = `${import.meta.env.VITE_WORKE_HOURS_ALL_RECORDS}/${userId}`;
+  const MONTHS = API_URLS.WORK_HOURS_SEARCH_MONTHS;
+  const RECORDS = `${API_URLS.WORK_HOURS_ALL_RECORDS}/${userId}`;
 
   const URL_ENDPOINT = searchTerm ? MONTHS : RECORDS;
 

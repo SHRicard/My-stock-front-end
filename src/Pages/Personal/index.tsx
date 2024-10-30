@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import { setUpdated } from "../../Store/Slices/updateSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { API_URLS } from "../../service/apiConfig";
 
 interface PersonalData {
   id: string;
@@ -59,7 +60,7 @@ export const Personal = () => {
   };
   const deleteUser = async (user: PersonalData) => {
     const userId = user.id;
-    const URL_ENDPOINT = import.meta.env.VITE_USER_DELETE;
+    const URL_ENDPOINT = API_URLS.USER_DELETE;
     try {
       const result = await Swal.fire({
         title: "¿Estás seguro?",

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "../../service/httpService";
+import { API_URLS } from "../../service/apiConfig";
 interface PersonalService {
   id: string;
   name: string;
@@ -15,7 +16,7 @@ export const useFilterPersonal = () => {
   const [filterTotalPages, setFilterTotalPages] = useState<number>(1);
   const [filterPage, setFilterPage] = useState<number>(1);
 
-  const URL_ENDPOINT = import.meta.env.VITE_USER_SEARCH;
+  const URL_ENDPOINT = API_URLS.USER_SEARCH;
 
   useEffect(() => {
     const fetchFilteredData = async () => {
