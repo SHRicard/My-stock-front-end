@@ -49,3 +49,12 @@ Las contribuciones son bienvenidas. Haz un fork y crea una rama para tus cambios
 
 Este proyecto está bajo la Licencia MIT.
 
+
+## ¡Se Agradece Mucho Una Estrellita! 🌟
+
+Si este proyecto te ha sido útil o te ha gustado, no dudes en darle una estrella ⭐️ en GitHub. ¡Tu apoyo nos motiva a seguir mejorando! 😊
+
+[¡Dale una estrella aquí!](https://github.com/SHRicard/My-stock-front-end)
+
+¡Gracias por contribuir al open-source! 🎉
+
