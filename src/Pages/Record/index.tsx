@@ -109,7 +109,7 @@ export const Record = () => {
         <Loading />
       ) : (
         <CRow>
-          {logs.length > 0 ? (
+          {logs && logs.length > 0 ? (
             logs.map((log) => (
               <CCol md={6}>
                 <AccordionsGlobalLogs key={log.id} data={log!} />
